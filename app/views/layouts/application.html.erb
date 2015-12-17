@@ -7,13 +7,43 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if signed_in? %>
-  Signed in as: <%= current_user.name %>
-  <%= button_to 'Sign out', sign_out_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign in', sign_in_path %>
-  <a href="/auth/facebook"> Connect With Facebook</a>
-<% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">PEARBNB</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="<%=root_path%>">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listings
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">All Listings</a></li>
+            <li><a href="#">My Listings</a></li>
+            <li><a href="#">Create Listing</a></li> 
+          </ul>
+        </li>
+        <li><a href="#">What is up?</a></li> 
+        <li><a href="#">Loser</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <li class = "navbar-text">Signed in as: <%= current_user.name %></li>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        <% else %>
+          <li><a href="<%=sign_in_path%>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="/auth/facebook"><span class="glyphicon glyphicon-user"></span> Connect With Facebook</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <div id="flash">
   <% flash.each do |key, value| %>

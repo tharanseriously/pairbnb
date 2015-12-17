@@ -29,6 +29,7 @@ gem 'omniauth-facebook'
 
 gem 'figaro'
 
+gem 'bootstrap-sass'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
