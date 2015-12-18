@@ -1,0 +1,23 @@
+<div>
+	<%= form_for(@listing) do |f| %>
+		<div>
+		<%= f.label :name%>
+		<%= f.text_field :name%>
+		</div>
+		<div>
+		<%= f.label :address%>
+		<%= f.text_area :address%>
+		</div>
+		<div>
+		<%= f.label :room_type%>
+		<%= f.text_field :room_type%>
+		</div>
+		<div>
+		<%= f.label :tag_list, "Tags (e.g. tag1, tag2, ...)"%>
+		<%= f.text_field :tag_list%>
+		</div>
+		<div>
+		<%= f.submit :'Create Listing' %>
+		</div>
+	<% end %>
+</div>

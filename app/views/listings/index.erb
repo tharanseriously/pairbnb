@@ -1,0 +1,19 @@
+<%if @listings.any?%>
+	<% i = 1%>
+	<%@listings.each do |listing|%>
+		<% user= listing.user%>
+		<div class="col-sm-6">
+			<h3><%=i%>. <a href="/listings/<%= listing.id %>"><%=listing.name%></a></h3>
+			<label>Address:</label> <%= listing.address%><br>
+			<label>Type Of Room:</label> <%= listing.room_type%><br>
+			<label>by</label> <%= user.name%><br>
+			<label>Tags:</label> <%= raw listing.tag_list.map{|tag| link_to tag, tag_path(tag)}.join(', ')%><br>
+			<% if user.id == current_user.id%>
+				<a href="/listings/<%=listing.id%>/edit"><button type="button" class="btn btn-default btn-xs">edit</button></a>
+			<% end%>
+		</div>
+		<% i = i+1%>
+	<%end%>
+<%else%>
+	<label>No listings</label>
+<%end%>
