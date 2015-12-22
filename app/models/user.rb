@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
  
   has_many :authentications, :dependent => :destroy
   has_many :listings
+  has_many :reservations
   
   def self.create_with_auth_and_hash(authentication,auth_hash)
     create! do |u|

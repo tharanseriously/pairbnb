@@ -1,0 +1,33 @@
+<%if @reservations.any?%>
+	<% i = 1%>
+	<div class="container">
+	  	<h2>My Reservations</h2>                                                                                    
+	  	<div class="table-responsive">          
+		  	<table class="table">
+			    <thead>
+			      	<tr>
+				        <th>#</th>
+				        <th>Listing</th>
+				        <th>Start Date</th>
+				        <th>End Date</th>
+			      	</tr>
+			    </thead>
+			    <tbody>
+					<%@reservations.each do |reservation|%>
+					<%listing = reservation.listing%>
+					<tr>
+						<td><%=i%></td>
+						<td><a href="/listings/<%= listing.id %>"><%=listing.name%></a></td>
+						<td><%= reservation.start_date%><br></td>
+						<td><%= reservation.end_date%></td>
+					</tr>
+					<% i = i+1%>
+					<%end%>
+				</tbody>
+			</table>
+	  	</div>
+	</div>
+
+<%else%>
+	<h2>You have not made any reservations</h2>
+<%end%>

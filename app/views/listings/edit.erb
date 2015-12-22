@@ -17,6 +17,9 @@
 		<%= f.text_field :tag_list, :value => @listing.tag_list.join(', ')%>
 		</div>
 		<div>
+		<%= f.file_field :image%>
+		</div>
+		<div>
 		<%= f.submit :'Update Listing' %>
 		</div>
 	<% end %>

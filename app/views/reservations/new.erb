@@ -1,0 +1,15 @@
+<div>
+	<%= form_for [@listing, @reservation] do |f| %>
+		<div>
+		<%= f.label :start_date%>
+		<%= f.date_field :start_date%>
+		</div>
+		<div>
+		<%= f.label :end_date%>
+		<%= f.date_field :end_date%>
+		</div>
+		<div>
+		<%= f.submit :'Make Reservation' %>
+		</div>
+	<% end %>
+</div>

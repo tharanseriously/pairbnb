@@ -7,6 +7,11 @@ class ListingsController < ApplicationController
 			@listings = Listing.all			
 		end
 	end
+
+	def show
+		@listing = Listing.find(params[:id])
+	end
+	
 	def new
 		if signed_in?
 			@listing = Listing.new
@@ -41,6 +46,6 @@ class ListingsController < ApplicationController
 
 	private
 	def listing_params
-		params.require(:listing).permit(:name, :address, :room_type, :tag_list)
+		params.require(:listing).permit(:name, :address, :room_type, :tag_list, :image)
 	end
 end

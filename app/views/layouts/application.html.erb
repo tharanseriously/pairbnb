@@ -29,6 +29,14 @@
             <li><a href="/listings/new">Create Listing</a></li> 
           </ul>
         </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reservation
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/reservations">My Reservations</a></li>
+            <li><a href="#"></a></li> 
+          </ul>
+        </li>
         <li><%= form_tag listings_path, :method => 'get',class: "navbar-form" do%>
           <div class="input-group">
             <%=text_field_tag 'tag', params[:tag], placeholder: "Search Tags", class: 'form-control'%>
@@ -45,7 +53,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <li><a href="/users/<%=current_user.id%>"> Signed in as <%= current_user.name%></a></li>
+          <li><a href="/users/<%=current_user.id%>"> Signed in as <%= current_user.email%></a></li>
           <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
         <% else %>
           <li><a href="<%=sign_in_path%>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -1,0 +1,20 @@
+<% user= @listing.user%>
+<div class="col-sm-2">
+	<% unless @listing.image_url.nil? %>
+		<%= image_tag @listing.image_url(:thumb) %><br>
+	<% end %>
+</div>
+<div class="col-sm-4">
+	<h3><%=@listing.name%></a></h3>
+	<label>Address:</label> <%= @listing.address%><br>
+	<label>Type Of Room:</label> <%= @listing.room_type%><br>
+	<label>by</label> <%= user.name%><br>
+	<label>Tags:</label> <%= raw @listing.tag_list.map{|tag| link_to tag, tag_path(tag)}.join(', ')%><br>
+	<% if current_user != nil %> 
+		<% if user.id == current_user.id%>
+			<a href="/listings/<%=@listing.id%>/edit"><button type="button" class="btn btn-default btn-xs">edit</button></a>
+		<% else %>
+			<a href="/listings/<%=@listing.id%>/reservations/new"><button type="button" class="btn btn-default btn-md">book</button></a>
+		<% end%>
+	<%end%>
+</div>

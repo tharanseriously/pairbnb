@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: tharanstestcloud
+  api_key: '683779419171839'
+  api_secret: bdr7ins76WmC5jgJVgzQwNSKt3A
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: tharanstestcloud
+  api_key: '683779419171839'
+  api_secret: bdr7ins76WmC5jgJVgzQwNSKt3A
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: tharanstestcloud
+  api_key: '683779419171839'
+  api_secret: bdr7ins76WmC5jgJVgzQwNSKt3A
+  enhance_image_tag: true
+  static_image_support: false
