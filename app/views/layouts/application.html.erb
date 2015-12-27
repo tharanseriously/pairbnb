@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -19,7 +19,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="<%=root_path%>">Home</a></li>
+        <li><a href="<%=root_path%>">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Listings
           <span class="caret"></span></a>
@@ -54,7 +54,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li><a href="/users/<%=current_user.id%>"> Signed in as <%= current_user.email%></a></li>
-          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete%></li>
         <% else %>
           <li><a href="<%=sign_in_path%>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           <li><a href="/auth/facebook"><span class="glyphicon glyphicon-user"></span> Connect With Facebook</a></li>

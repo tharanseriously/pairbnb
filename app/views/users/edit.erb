@@ -1,0 +1,19 @@
+<div>
+	<%= form_for(@user) do |f| %>
+		<div>
+		<%= f.label :name%>
+		<%= f.text_field :name, :value => @user.name%>
+		</div>
+		<div>
+		<%= f.label :email%>
+		<%= f.email_field :email, :value => @user.email%>
+		</div>
+		<div>
+		<%= f.label :password%>
+		<%= f.password_field :password%>
+		</div>
+		<div>
+		<%= f.submit :'Update Account' %>
+		</div>
+	<% end %>
+</div>

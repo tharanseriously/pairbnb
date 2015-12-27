@@ -39,6 +39,10 @@ gem 'cloudinary'
 
 gem 'rmagick'
 
+gem 'braintree'
+
+gem 'letter_opener', :group => :development
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

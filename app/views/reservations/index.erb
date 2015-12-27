@@ -10,6 +10,9 @@
 				        <th>Listing</th>
 				        <th>Start Date</th>
 				        <th>End Date</th>
+				        <th>Price Per Night</th>
+				        <th>Total Price</th>
+				        <th>Payment</th>
 			      	</tr>
 			    </thead>
 			    <tbody>
@@ -20,6 +23,15 @@
 						<td><a href="/listings/<%= listing.id %>"><%=listing.name%></a></td>
 						<td><%= reservation.start_date%><br></td>
 						<td><%= reservation.end_date%></td>
+						<td>RM <%= listing.price%></td>
+						<td>RM <%= (reservation.total_days) * listing.price.to_i%></td>
+						<td>
+							<% if reservation.paid? == false %>
+								<%= link_to "Checkout", new_reservation_checkout_path(reservation)%>
+							<%else%>
+								PAID
+							<%end%>
+						</td>
 					</tr>
 					<% i = i+1%>
 					<%end%>

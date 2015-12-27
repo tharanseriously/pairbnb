@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20151226131053_add_paid_to_reservations.rb

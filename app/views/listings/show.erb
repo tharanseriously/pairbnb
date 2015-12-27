@@ -14,7 +14,9 @@
 		<% if user.id == current_user.id%>
 			<a href="/listings/<%=@listing.id%>/edit"><button type="button" class="btn btn-default btn-xs">edit</button></a>
 		<% else %>
-			<a href="/listings/<%=@listing.id%>/reservations/new"><button type="button" class="btn btn-default btn-md">book</button></a>
+			<% if Reservation.find_by(user_id: current_user.id, listing_id: @listing.id) == nil%>
+				<a href="/listings/<%=@listing.id%>/reservations/new"><button type="button" class="btn btn-default btn-md">book</button></a>
+			<%end%>
 		<% end%>
 	<%end%>
 </div>
